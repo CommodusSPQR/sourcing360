@@ -1,0 +1,28 @@
+body, h1, p {
+    margin: 0;
+    padding: 0;
+    background-color: #000; /* Set the background color to black */
+  }
+  
+  .image-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+  }
+  
+  img {
+    width: 100%;
+    max-width: 1754px;
+    height: auto;
+    display: block;
+  }
+  
+  @media screen and (min-width: 1754px) {
+    img {
+      width: auto;
+      height: auto;
+    }
+  }
+  
