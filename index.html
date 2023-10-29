@@ -4,22 +4,86 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Single Page Website</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles w menu.css">
+  <link rel="stylesheet" href="path/to/your/fonts.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
+<div class="container">
+  <!-- Navigation Dropdown -->
+  <div class="dropdown">
+    <button onclick="toggleDropdown()" class="dropbtn">
+      <span class="hamburger-icon">&#9776;</span>
+      MENU
+    </button>
+    <div id="myDropdown" class="dropdown-content">
+      <a href="#section1" onclick="toggleDropdown()">About Us</a>
+      <a href="#section2" onclick="toggleDropdown()">Our Services</a>
+      <a href="#section3" onclick="toggleDropdown()">Garments</a>
+      <a href="#section4" onclick="toggleDropdown()">Samples</a>
+      <a href="#section5" onclick="toggleDropdown()">Join Our Team</a>
+      <a href="#section6" onclick="toggleDropdown()">Contact Us</a>
+      <!-- ... other sections ... -->
+    </div>
+  </div>
+
+  <!-- Image Sections -->
   <div class="image-container">
-    <img src="PNGs2/page_1-2.png" alt="Image 1">
+    <img src="PNGs2/page1.png" alt="Image 1">
+    <div id="section1">
+      <img src="PNGs2/page2.png" alt="Image 2">
+    </div>
+    <div id="section2">
     <img src="PNGs2/page_03.png" alt="Image 3">
+    </div>
+    <div id="section3">
     <img src="PNGs2/page_04.png" alt="Image 4">
+    </div>
     <img src="PNGs2/page_05.png" alt="Image 5">
     <img src="PNGs2/page_06.png" alt="Image 6">
     <img src="PNGs2/page_07.png" alt="Image 7">
     <img src="PNGs2/page_08.png" alt="Image 8">
-    <img src="PNGs2/page 09-12.png" alt="Image 9">
+    <div id="section4">
+    <img src="PNGs2/page 9-12.png" alt="Image 9">
+    </div>
+    <div id="section5">
     <img src="PNGs2/page_13.png" alt="Image 13">
+    </div>
+    <div id="section6">
     <img src="PNGs2/page_14.png" alt="Image 14">
+    </div>
   </div>
+
+  <!-- Smooth Scrolling JavaScript -->
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
+  <script>
+    function toggleDropdown() {
+      document.getElementById("myDropdown").classList.toggle("show");
+    }
+    
+    // Close the dropdown menu if the user clicks outside of it
+    window.onclick = function(event) {
+      if (!event.target.matches('.dropbtn')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+          var openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+          }
+        }
+      }
+    }
+  </script>
   <a id="button"></a>
 
   <script>
@@ -41,8 +105,6 @@
       document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
     }
   </script>
-  
-  
-  
+</div>
 </body>
 </html>
